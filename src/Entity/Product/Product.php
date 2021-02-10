@@ -1,21 +1,39 @@
 <?php
 
+/*
+ * This file has been created by developers from BitBag.
+ * Feel free to contact us once you face any issues or want to start
+ * another great project.
+ * You can find more information about us on https://bitbag.shop and write us
+ * an email on kamil.twardowsky@gmail.com
+ */
+
 declare(strict_types=1);
 
 namespace App\Entity\Product;
 
-use Doctrine\ORM\Mapping as ORM;
 use Sylius\Component\Core\Model\Product as BaseProduct;
-use Sylius\Component\Product\Model\ProductTranslationInterface;
 
-/**
- * @ORM\Entity
- * @ORM\Table(name="sylius_product")
- */
 class Product extends BaseProduct
 {
-    protected function createTranslation(): ProductTranslationInterface
+    public const PRODUCT_COLORS = [
+        'CZERWONY',
+        'NIEBIESKI',
+        'ZIELONY',
+    ];
+
+    /**
+     * @var string
+     */
+    protected $color;
+
+    public function getColor(): ?string
     {
-        return new ProductTranslation();
+        return $this->color;
+    }
+
+    public function setColor(?string $color): void
+    {
+        $this->color = $color;
     }
 }

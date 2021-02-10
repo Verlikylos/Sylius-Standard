@@ -1,0 +1,5 @@
+app:
+    form:
+        product:
+            color: 'Color'
+            color_placeholder: 'Choose a color...'
